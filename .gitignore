@@ -1,6 +1,8 @@
 # Compiled class file
 *.class
 
+public/
+
 # Log file
 *.log
 
