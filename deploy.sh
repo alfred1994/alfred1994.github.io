@@ -13,7 +13,7 @@ git push origin master
 
 
 # Build the project.
-hugo # if using a theme, replace by `hugo -t <yourtheme>`
+sudo HUGO_ENV=production hugo --gc --minify # if using a theme, replace by `hugo -t <yourtheme>`
 
 # Go To Public folder
 cd public
