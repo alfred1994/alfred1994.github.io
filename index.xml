@@ -1,4 +1,127 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alfred&#39;s Blog on Alfred&#39;s Blog</title><link>http://alfredyoung.club/</link><description>Recent content in Alfred&#39;s Blog on Alfred&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>Creating a New Theme</title><link>http://alfredyoung.club/2014/lets-create-a-new-theme/</link><pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><guid>http://alfredyoung.club/2014/lets-create-a-new-theme/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alfred&#39;s Blog on Alfred&#39;s Blog</title><link>http://alfredyoung.club/</link><description>Recent content in Alfred&#39;s Blog on Alfred&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 06 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>Spring Cloud Eureka 服务搭建</title><link>http://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</link><pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate><guid>http://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</guid><description>
+&lt;blockquote&gt;
+&lt;p&gt;该系列文章均转自 &lt;a href=&#34;https://blog.csdn.net/hubo_88/article/details/80520850&#34; rel=&#34;nofollow noreferrer&#34; target=&#34;_blank&#34;&gt;CSDN: hubo_88 &lt;/a&gt;, 因文章较多,故统一转入自己博客方便查阅.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;搭建服务注册中心&#34;&gt;搭建服务注册中心&lt;/h2&gt;
+&lt;p&gt;Spring Cloud Eureka是Spring Cloud Netflix服务套件中的一部分,它基于Netflix Eureka做了二次封装,主要负责完成微服务架构中的服务治理功能.&lt;/p&gt;
+&lt;h4 id=&#34;1-构建一个maven项目&#34;&gt;1.构建一个Maven项目&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-blog.csdn.net/20180531110317718?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1Ym9fODg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70&#34; alt=&#34;new maven&#34; title=&#34;构建一个maven项目&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;注：这里 Create from archetype 可以不用勾选，直接构建一个空的 maven 项目。&lt;/p&gt;
+&lt;p&gt;可以在 maven 主项目里统一管理各个子项目所引用的依赖版本，这一系列项目所用的 Spring Cloud 版本为 Finchley.RC1， Spring Boot 版本为 2.0.1.RELEASE， JDK 为 1.8&lt;/p&gt;
+&lt;p&gt;pom.xml:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt; &amp;lt;properties&amp;gt;
+&amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt;
+&amp;lt;project.reporting.outputEncoding&amp;gt;UTF-8&amp;lt;/project.reporting.outputEncoding&amp;gt;
+&amp;lt;java.version&amp;gt;1.8&amp;lt;/java.version&amp;gt;
+&amp;lt;spring-cloud.version&amp;gt;Finchley.RC1&amp;lt;/spring-cloud.version&amp;gt;
+&amp;lt;spring-boot.version&amp;gt;2.0.1.RELEASE&amp;lt;/spring-boot.version&amp;gt;
+&amp;lt;/properties&amp;gt;
+&amp;lt;dependencyManagement&amp;gt;
+&amp;lt;dependencies&amp;gt;
+&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;spring-cloud-dependencies&amp;lt;/artifactId&amp;gt;
+&amp;lt;version&amp;gt;${spring-cloud.version}&amp;lt;/version&amp;gt;
+&amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt;
+&amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;spring-boot-dependencies&amp;lt;/artifactId&amp;gt;
+&amp;lt;version&amp;gt;${spring-boot.version}&amp;lt;/version&amp;gt;
+&amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt;
+&amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&amp;lt;/dependencies&amp;gt;
+&amp;lt;/dependencyManagement&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;2-创建一个module-作为服务注册中心-eureka-server&#34;&gt;2.创建一个module, 作为服务注册中心 Eureka Server.&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-blog.csdn.net/20180531111814575?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1Ym9fODg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70&#34; alt=&#34;new module&#34; title=&#34;创建新模块&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;注：这里 Create from archetype 仍然不用勾选，直接构建一个空的 maven 项目。&lt;/p&gt;
+&lt;p&gt;创建完工程后，在 pom.xml 文件中引入依赖&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;spring-cloud-starter-netflix-eureka-server&amp;lt;/artifactId&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;3-启动类&#34;&gt;3.启动类&lt;/h4&gt;
+&lt;p&gt;在Spring Boot工程的application启动类加上 &lt;code&gt;@EnableEurekaServer&lt;/code&gt; 注解&lt;/p&gt;
+&lt;h4 id=&#34;4-eureka的配置文件application-yaml&#34;&gt;4.Eureka的配置文件application.yaml&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;server:
+port: 8761
+spring:
+application:
+name: eureka-service
+eureka:
+  instance:
+    hostname: localhost
+client:
+#由于该应用为注册中心,设置为false,表明不向注册中心注册自己
+register-with-eureka: false
+#是否从eureka服务器获取注册信息，这里不需要
+fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+logging:
+level:
+com:
+netflix:
+eureka: OFF
+discovery: OFF
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Eureka 是一个高可用的组件（后续会配置），每一个实例注册之后需要向注册中心发送心跳，在默认情况下 erureka server 也是一个eureka client ,必须要指定一个 server，通过 eureka.client.register-with-eureka：false 和 fetch-registry：false 来设置自己是一个eureka server&lt;/p&gt;
+&lt;h4 id=&#34;5-运行eurekaserviceapplication启动服务&#34;&gt;5.运行EurekaServiceApplication启动服务&lt;/h4&gt;
+&lt;p&gt;在浏览器中输入&lt;code&gt;http://localhost:8761&lt;/code&gt;即可看到Eureka的管理界面.
+&lt;img src=&#34;https://img-blog.csdn.net/2018053111444680?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1Ym9fODg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70&#34; alt=&#34;Eureka GUI&#34; title=&#34;eureka管理界面&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;当前因为还没有服务注册进来, 所以是 No instances available.&lt;/p&gt;
+&lt;h2 id=&#34;搭建注册服务提供者&#34;&gt;搭建注册服务提供者&lt;/h2&gt;
+&lt;h4 id=&#34;1-创建一个module-步骤同上&#34;&gt;1.创建一个module, 步骤同上.&lt;/h4&gt;
+&lt;h4 id=&#34;2-添加pom依赖&#34;&gt;2.添加POM依赖&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;dependency&amp;gt;
+&amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;
+&amp;lt;artifactId&amp;gt;spring-cloud-starter-netflix-eureka-client&amp;lt;/artifactId&amp;gt;
+&amp;lt;/dependency&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;3-启动类-1&#34;&gt;3.启动类&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@SpringBootApplication
+@EnableEurekaClient
+@RestController
+public class SpringCloudServiceApplication {
+public static void main(String[] args) {
+SpringApplication.run(SpringCloudServiceApplication.class, args);
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;通过注解&lt;code&gt;@EnableEurekaClient&lt;/code&gt;表明自己是一个client.
+&lt;code&gt;@EnableEurekaClient&lt;/code&gt;注解是基于 Spring-Cloud-Netflix 依赖, 只能eureka使用.
+也可以使用&lt;code&gt;@EnableDiscoveryClient&lt;/code&gt;, 它基于 Spring-Cloud-Commons 依赖, 并且在 classpath中实现.&lt;/p&gt;
+&lt;h4 id=&#34;4-写一个服务接口&#34;&gt;4.写一个服务接口.&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@RestController
+public class PortService {
+@Value(&amp;quot;${server.port}&amp;quot;)
+String port;
+@RequestMapping(&amp;quot;port&amp;quot;)
+public String getPort() {
+return &amp;quot;Hello World, I&#39;m from port : &amp;quot; + port;
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;5-配置文件application-yaml&#34;&gt;5.配置文件application.yaml&lt;/h4&gt;
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;server:
+port: 8281
+eureka:
+client:
+serviceUrl:
+defaultZone: http://localhost:8761/eureka/
+spring:
+application:
+name: spring-demo-service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h4 id=&#34;6-启动应用&#34;&gt;6.启动应用&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-blog.csdn.net/20180531125144892?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1Ym9fODg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70&#34; alt=&#34;register success&#34; title=&#34;服务注册成功&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;在Eureka的控制台上已经看到应用名，证明服务提供者已经成功注册在Eureka上了&lt;/p&gt;
+&lt;h4 id=&#34;7-浏览器访问-显示成功&#34;&gt;7.浏览器访问, 显示成功&lt;/h4&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-blog.csdn.net/2018053112535459?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1Ym9fODg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70&#34; alt=&#34;request success&#34; title=&#34;访问成功&#34; /&gt;&lt;/p&gt;</description></item><item><title>Creating a New Theme</title><link>http://alfredyoung.club/2014/lets-create-a-new-theme/</link><pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate><guid>http://alfredyoung.club/2014/lets-create-a-new-theme/</guid><description>
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.&lt;/p&gt;
 &lt;p&gt;We&amp;rsquo;ll start with creating a new site with a very basic template. Then we&amp;rsquo;ll add in a few pages and posts. With small variations on that, you will be able to create many different types of web sites.&lt;/p&gt;
