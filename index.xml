@@ -1,6 +1,103 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alfred&#39;s Blog on Alfred&#39;s Blog</title><link>http://alfredyoung.club/</link><description>Recent content in Alfred&#39;s Blog on Alfred&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 06 Mar 2019 00:00:00 +0000</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>Spring Cloud Eureka 服务搭建</title><link>http://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</link><pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate><guid>http://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</guid><description>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alfred&#39;s Blog on Alfred&#39;s Blog</title><link>http://alfredyoung.club/</link><description>Recent content in Alfred&#39;s Blog on Alfred&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 23 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>通过Spring Boot Admin实现服务上下线的即时钉钉通知</title><link>http://alfredyoung.club/2019/%E9%80%9A%E8%BF%87spring-boot-admin%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E4%B8%8A%E4%B8%8B%E7%BA%BF%E7%9A%84%E5%8D%B3%E6%97%B6%E9%92%89%E9%92%89%E9%80%9A%E7%9F%A5/</link><pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate><guid>http://alfredyoung.club/2019/%E9%80%9A%E8%BF%87spring-boot-admin%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E4%B8%8A%E4%B8%8B%E7%BA%BF%E7%9A%84%E5%8D%B3%E6%97%B6%E9%92%89%E9%92%89%E9%80%9A%E7%9F%A5/</guid><description>
+&lt;h2 id=&#34;1-背景&#34;&gt;1. 背景&lt;/h2&gt;
+&lt;p&gt;在微服务里肯定少不了服务监控，Spring Boot Admin（以下简称SPA）虽然不是一个官方项目，但是在开源社区里的热度比较高。SPA的接入简单快速、UI简洁明了，如果使用了Spring Cloud，服务端只需要接入注册中心即可接收到其他服务通过endpoints暴露的健康检查数据。但是这样肯定还不够，但服务出现严重错误导致下线时我们需要能快速及时的接受到通知。在SPA的官方文档上能看到虽然已经自带支持了&lt;a href=&#34;https://codecentric.github.io/spring-boot-admin/current/#_notifications&#34; target=&#34;_blank&#34;&gt;Notifications&lt;/a&gt;，但是大多都是支持的国外的远程协作和通讯工具。至于邮件通知，虽然是可以做到但是消息即时性太慢了，所以决定通过钉钉群机器人的消息通知API实现。&lt;/p&gt;
+&lt;h2 id=&#34;2-实现&#34;&gt;2. 实现&lt;/h2&gt;
+&lt;p&gt;查看源码，发现在&lt;code&gt;de.codecentric.boot.admin.server&lt;/code&gt;下有个包叫&lt;code&gt;notify&lt;/code&gt;,里面有很多官方已经自实现的国外聊天工具的Notifier类，依次打开观察后发现都继承了&lt;code&gt;AbstractEventNotifier&lt;/code&gt;这么一个抽象类，并实现了其中的以下的方法来实现主动通知：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;protected abstract Mono&amp;lt;Void&amp;gt; doNotify(InstanceEvent event, Instance instance);
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以看到这里用到了Reactor类库，也就是响应式编程。对于大部分习惯了传统编程方式的人来说（就是我没错），是很难直接切换过来的，它需要你转变自己的一个思维方式。 这里代码中出现的&lt;code&gt;Mono&lt;/code&gt;和&lt;code&gt;Flux&lt;/code&gt;是响应式中的两个重要基础概念，总的来说就是规定了两种响应流式范式，它们让数据具备了一些新的特性，比如基于发布订阅的事件驱动、异步流、背压等。关于Reactor的详细介绍等日后有时间再详细整理，这里就先略过。&lt;/p&gt;
+&lt;p&gt;参考官方已经实现服务提醒类中的同方法：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt; @Override
+protected Mono&amp;lt;Void&amp;gt; doNotify(InstanceEvent event, Instance instance) {
+return Mono.fromRunnable(
+() -&amp;gt; restTemplate.postForEntity(buildUrl(), createHipChatNotification(event, instance), Void.class));
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这里可以大概看到发出了一个无值的异步线程，并用http post请求了某个消息发送接口，那么我们这里基本上也是相同的实现方式，稍作修改（复制黏贴）即可。&lt;/p&gt;
+&lt;h3 id=&#34;2-1-配置钉钉机器人webhook&#34;&gt;2.1 配置钉钉机器人webhook&lt;/h3&gt;
+&lt;p&gt;在钉钉群里设置添加一下就好了，主要是拿到url。&lt;/p&gt;
+&lt;h3 id=&#34;2-2-重写消息通知方法&#34;&gt;2.2 重写消息通知方法&lt;/h3&gt;
+&lt;p&gt;直接贴出完整代码，这里继承&lt;code&gt;AbstractEventNotifier&lt;/code&gt; 或者&lt;code&gt;AbstractStatusChangeNotifier&lt;/code&gt;都可以。除了&lt;code&gt;doNotify&lt;/code&gt;方法外，其他代码只需要构建出钉钉机器人消息通知API所需的数据结构即可。看了下钉钉文档文案样式支持markdown，这里就顺便支持了一下。&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-java&#34;&gt;@Component
+public class DingTalkNotifier extends AbstractStatusChangeNotifier {
+private static final String DEFAULT_MESSAGE = &amp;quot;# #{instance.registration.name} (#{instance.id}) is **#{event.statusInfo.status}**&amp;quot;;
+private final SpelExpressionParser parser = new SpelExpressionParser();
+private RestTemplate restTemplate = new RestTemplate();
+@Value(&amp;quot;${spring.boot.admin.notify.dingtalk.webhookToken}&amp;quot;)
+private String webHookToken;
+private String atMobiles;
+private String msgtype = &amp;quot;markdown&amp;quot;;
+private String title = &amp;quot;服务告警&amp;quot;;
+private Expression message;
+public DingTalkNotifier(InstanceRepository repositpry) {
+super(repositpry);
+this.message = parser.parseExpression(DEFAULT_MESSAGE, ParserContext.TEMPLATE_EXPRESSION);
+}
+@Override
+protected Mono&amp;lt;Void&amp;gt; doNotify(InstanceEvent event, Instance instance) {
+System.out.println(&amp;quot;开始报警&amp;quot;);
+return Mono.fromRunnable(() -&amp;gt; restTemplate.postForEntity(webHookToken, createMessage(event, instance), Void.class));
+}
+private HttpEntity&amp;lt;Map&amp;lt;String, Object&amp;gt;&amp;gt; createMessage(InstanceEvent event, Instance instance) {
+Map&amp;lt;String, Object&amp;gt; messageJson = new HashMap&amp;lt;&amp;gt;();
+HashMap&amp;lt;String, String&amp;gt; params = new HashMap&amp;lt;&amp;gt;();
+params.put(&amp;quot;text&amp;quot;, this.getMessage(event, instance));
+params.put(&amp;quot;title&amp;quot;, this.title);
+messageJson.put(&amp;quot;atMobiles&amp;quot;, this.atMobiles);
+messageJson.put(&amp;quot;msgtype&amp;quot;, this.msgtype);
+messageJson.put(this.msgtype, params);
+HttpHeaders headers = new HttpHeaders();
+headers.setContentType(MediaType.APPLICATION_JSON_UTF8);
+return new HttpEntity&amp;lt;&amp;gt;(messageJson, headers);
+}
+private String getMessage(InstanceEvent event, Instance instance) {
+Map&amp;lt;String, Object&amp;gt; root = new HashMap&amp;lt;&amp;gt;();
+root.put(&amp;quot;event&amp;quot;, event);
+root.put(&amp;quot;instance&amp;quot;, instance);
+root.put(&amp;quot;lastStatus&amp;quot;, getLastStatus(event.getInstance()));
+StandardEvaluationContext context = new StandardEvaluationContext(root);
+context.addPropertyAccessor(new MapAccessor());
+return message.getValue(context, String.class);
+}
+public void setRestTemplate(RestTemplate restTemplate) {
+this.restTemplate = restTemplate;
+}
+public String getWebHookToken() {
+return webHookToken;
+}
+public void setWebHookToken(String webHookToken) {
+this.webHookToken = webHookToken;
+}
+public String getAtMobiles() {
+return atMobiles;
+}
+public void setAtMobiles(String atMobiles) {
+this.atMobiles = atMobiles;
+}
+public String getMsgtype() {
+return msgtype;
+}
+public void setMsgtype(String msgtype) {
+this.msgtype = msgtype;
+}
+public Expression getMessage() {
+return message;
+}
+public void setMessage(String message) {
+this.message = this.parser.parseExpression(message, ParserContext.TEMPLATE_EXPRESSION);
+}
+public String getTitle() {
+return title;
+}
+public void setTitle(String title) {
+this.title = title;
+}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;2-3-测试结果&#34;&gt;2.3 测试结果&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;http://alfredyoung.club/public/images/2019-04-23-img-1.png&#34; alt=&#34;sample-img-1&#34; /&gt;&lt;/p&gt;</description></item><item><title>Spring Cloud Eureka 服务搭建</title><link>http://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</link><pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate><guid>http://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</guid><description>
 &lt;blockquote&gt;
-&lt;p&gt;该系列文章均转自 &lt;a href=&#34;https://blog.csdn.net/hubo_88/article/details/80520850&#34; target=&#34;_blank&#34;&gt;CSDN: hubo_88 &lt;/a&gt;, 因文章较多,故统一转入自己博客方便查阅.&lt;/p&gt;
+&lt;p&gt;该系列文章均转自 &lt;a href=&#34;https://blog.csdn.net/hubo_88/article/details/80520850&#34; target=&#34;_blank&#34;&gt;CSDN: hubo_88&lt;/a&gt;, 因文章较多,故统一转入自己博客方便查阅.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id=&#34;搭建服务注册中心&#34;&gt;搭建服务注册中心&lt;/h2&gt;
 &lt;p&gt;Spring Cloud Eureka是Spring Cloud Netflix服务套件中的一部分,它基于Netflix Eureka做了二次封装,主要负责完成微服务架构中的服务治理功能.&lt;/p&gt;
@@ -922,5 +1019,4 @@ $ vi themes/zafta/layouts/_default/single.html
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Note that we removed the date logic from the default template and put it in the post template. Generate the web site and verify the results. Posts have dates and the about page doesn&amp;rsquo;t.&lt;/p&gt;
 &lt;h3 id=&#34;don-t-repeat-yourself&#34;&gt;Don&amp;rsquo;t Repeat Yourself&lt;/h3&gt;
-&lt;p&gt;DRY is a good design goal and Hugo does a great job supporting it. Part of the art of a good template is knowing when to add a new template and when to update an existing one. While you&amp;rsquo;re figuring that out, accept that you&amp;rsquo;ll be doing some refactoring. Hugo makes that easy and fast, so it&amp;rsquo;s okay to delay splitting up a template.&lt;/p&gt;</description></item><item><title>Migrate to Hugo from Jekyll</title><link>http://alfredyoung.club/2014/migrate-from-jekyll/</link><pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate><guid>http://alfredyoung.club/2014/migrate-from-jekyll/</guid><description>
-&lt;h2 id=&#34;move-static-content-to-static&#34;&gt;Move static content to &lt;code&gt;static&lt;/code&gt;&lt;/h2&gt;</description></item></channel></rss>
+&lt;p&gt;DRY is a good design goal and Hugo does a great job supporting it. Part of the art of a good template is knowing when to add a new template and when to update an existing one. While you&amp;rsquo;re figuring that out, accept that you&amp;rsquo;ll be doing some refactoring. Hugo makes that easy and fast, so it&amp;rsquo;s okay to delay splitting up a template.&lt;/p&gt;</description></item></channel></rss>
