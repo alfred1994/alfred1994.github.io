@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Alfred&#39;s Blog on Alfred&#39;s Blog</title><link>http://alfredyoung.club/</link><description>Recent content in Alfred&#39;s Blog on Alfred&#39;s Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 12 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="/" rel="self" type="application/rss+xml"/><item><title>使用Google Jib简化并加速Docker应用镜像的构建</title><link>http://alfredyoung.club/2019/%E4%BD%BF%E7%94%A8google-jib%E7%AE%80%E5%8C%96%E5%B9%B6%E5%8A%A0%E9%80%9Fdocker%E5%BA%94%E7%94%A8%E9%95%9C%E5%83%8F%E7%9A%84%E6%9E%84%E5%BB%BA/</link><pubDate>Tue, 12 Nov 2019 00:00:00 +0000</pubDate><guid>http://alfredyoung.club/2019/%E4%BD%BF%E7%94%A8google-jib%E7%AE%80%E5%8C%96%E5%B9%B6%E5%8A%A0%E9%80%9Fdocker%E5%BA%94%E7%94%A8%E9%95%9C%E5%83%8F%E7%9A%84%E6%9E%84%E5%BB%BA/</guid><description>
 &lt;h2 id=&#34;1-背景&#34;&gt;1. 背景&lt;/h2&gt;
-&lt;p&gt;在初步实现了[基于GitLab + Docker的自动CI/CD流水线](&amp;ldquo;&lt;a href=&#34;https://alfredyoung.club/2019/%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8Edocker%E7%9A%84gitlab-ci%E4%BB%A5%E5%8F%8Arunner%E7%9A%84%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE/&amp;quot;)后&#34; target=&#34;_blank&#34;&gt;https://alfredyoung.club/2019/%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8Edocker%E7%9A%84gitlab-ci%E4%BB%A5%E5%8F%8Arunner%E7%9A%84%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE/&amp;quot;)后&lt;/a&gt;,&lt;/p&gt;
+&lt;p&gt;在初步实现了&lt;a href=&#34;https://alfredyoung.club/2019/%E6%90%AD%E5%BB%BA%E5%9F%BA%E4%BA%8Edocker%E7%9A%84gitlab-ci%E4%BB%A5%E5%8F%8Arunner%E7%9A%84%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE/&#34; target=&#34;_blank&#34;&gt;基于GitLab + Docker的自动CI/CD流水线&lt;/a&gt;后,&lt;/p&gt;
 &lt;p&gt;如何优化其中的CI脚本步骤和打包部署成为了接下来的问题.仔细查看了GitLab CI的某条流水线运行日志后发现, 在拉取新打包的镜像时间耗时较多,镜像的最后一个layer体积很大,是整个应用jar包的大小.&lt;/p&gt;
 &lt;p&gt;如此一来的弊端就能明显了, 一是这样构建出来的每个镜像都是jar包的大小, 几个历史版本遗留下来, 占用的存储空间基本上就已经接近1个G了. 其次是每次&lt;code&gt;pull&lt;/code&gt;和&lt;code&gt;push&lt;/code&gt;的时候也都会占用大量的带宽.&lt;/p&gt;
 &lt;p&gt;所以,完美的镜像分层是应该把jar包中再细分为依赖库层和代码层的, 但是按照目前DockerFile打包的形式无法实现依赖与代码的分层剥离.&lt;/p&gt;
 &lt;h2 id=&#34;2-解决&#34;&gt;2. 解决&lt;/h2&gt;
-&lt;p&gt;刚开始研究时, 先是找到了[Spotify开发的一个dockerFile的maven插件](&amp;ldquo;&lt;a href=&#34;https://github.com/spotify/dockerfile-maven&amp;quot;),它是通过pom&#34; target=&#34;_blank&#34;&gt;https://github.com/spotify/dockerfile-maven&amp;quot;),它是通过pom&lt;/a&gt; + dockerfile的形式配置来使用的.&lt;/p&gt;
+&lt;p&gt;刚开始研究时, 先是找到了&lt;a href=&#34;https://github.com/spotify/dockerfile-maven&#34; target=&#34;_blank&#34;&gt;Spotify开发的一个dockerFile的maven插件&lt;/a&gt;,它是通过pom + dockerfile的形式配置来使用的.&lt;/p&gt;
 &lt;p&gt;虽然是方便了不少, 省去了&lt;code&gt;docker build...&lt;/code&gt;, &lt;code&gt;docker tag...&lt;/code&gt;, &lt;code&gt;docker push...&lt;/code&gt;等操作,但还是没有解决根本的镜像分层问题.
 &lt;br&gt;&lt;/p&gt;
-&lt;p&gt;再后来,便是找到了Google出品的[jib-maven-plugin](&amp;ldquo;&lt;a href=&#34;https://github.com/GoogleContainerTools/jib&amp;quot;&#34; target=&#34;_blank&#34;&gt;https://github.com/GoogleContainerTools/jib&amp;quot;&lt;/a&gt;). 它完美利用了Docker镜像的分层机制,&lt;/p&gt;
+&lt;p&gt;再后来,便是找到了Google出品的&lt;a href=&#34;https://github.com/GoogleContainerTools/jib&#34; target=&#34;_blank&#34;&gt;jib-maven-plugin&lt;/a&gt;. 它完美利用了Docker镜像的分层机制,&lt;/p&gt;
 &lt;p&gt;并且不再需要编写&lt;code&gt;Dockerfile&lt;/code&gt;文件,甚至都不需要启动&lt;code&gt;docker daemon&lt;/code&gt;就能完成镜像的创建,一切都只需要通过pom文件配置即可.&lt;/p&gt;
 &lt;p&gt;下面直接贴出成品:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;plugin&amp;gt;
@@ -107,7 +107,7 @@ ${HOST_ENV} ${APP_ENV} ${EUREKA_ZONE} ${SERVER_PORT}
 &lt;p&gt;官方文档上提到了一些安装前的准备工作。&lt;/p&gt;
 &lt;p&gt;首先，你要有一台服务器，并且不能和Gitlab服务在同一台服务器上。&lt;/p&gt;
 &lt;p&gt;其次，你需要提前获取好token，这里不再赘述，根据runner的不同类型，可分别在全局设置-CI/CD或者项目设置中找到token。&lt;/p&gt;
-&lt;p&gt;参阅[官方文档](&amp;ldquo;&lt;a href=&#34;https://docs.gitlab.com/runner/&amp;quot;&#34; target=&#34;_blank&#34;&gt;https://docs.gitlab.com/runner/&amp;quot;&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;参阅&lt;a href=&#34;https://docs.gitlab.com/runner/&#34; target=&#34;_blank&#34;&gt;官方文档&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;2-2-通过docker-image安装并注册&#34;&gt;2.2 通过Docker image安装并注册&lt;/h3&gt;
 &lt;p&gt;这里直接采用官方&lt;a href=&#34;https://docs.gitlab.com/runner/register/index.html#one-line-registration-command&#34; target=&#34;_blank&#34;&gt;文档&lt;/a&gt;中最后的一键安装并注册到gitlab，一行命令解决。其中有变量需要自行替换：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt; docker run --rm -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register \

@@ -3,7 +3,7 @@
 2.1 安装准备 官方文档上提到了一些安装前的准备工作。
 首先，你要有一台服务器，并且不能和Gitlab服务在同一台服务器上。
 其次，你需要提前获取好token，这里不再赘述，根据runner的不同类型，可分别在全局设置-CI/CD或者项目设置中找到token。
-参阅[官方文档](&amp;ldquo;https://docs.gitlab.com/runner/&amp;quot;)
+参阅官方文档
 2.2 通过Docker image安装并注册 这里直接采用官方文档中最后的一键安装并注册到gitlab，一行命令解决。其中有变量需要自行替换：
 docker run --rm -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-runner register \ --non-interactive \ --executor &amp;quot;docker&amp;quot; \ --docker-image alpine:latest \ --url &amp;quot;https://gitlab.com/&amp;quot; \ --registration-token &amp;quot;PROJECT_REGISTRATION_TOKEN&amp;quot; \ --description &amp;quot;docker-runner&amp;quot; \ --tag-list &amp;quot;docker,aws&amp;quot; \ --run-untagged=&amp;quot;true&amp;quot; \ --locked=&amp;quot;false&amp;quot; \ --access-level=&amp;quot;not_protected&amp;quot; 输入命令后会自动从DockerHub中下载官方镜像，如果下载速度慢可自行设置docker镜像加速。
 以上命令完成后，对应的config目录下(此处为/srv/gitlab-runner/config)会自动创建一个config.toml的配置文件。并且此时应该就能在gitlab的runner管理页面上看到刚才创建的runner了。
