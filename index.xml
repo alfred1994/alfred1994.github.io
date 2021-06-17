@@ -341,7 +341,9 @@ this.title = title;
 }
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;2-3-测试结果&#34;&gt;2.3 测试结果&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;./2021-02-18-screenshot-01.jpg&#34; alt=&#34;钉钉通知结果&#34; /&gt;&lt;/p&gt;</description></item><item><title>Spring Cloud Eureka 服务搭建</title><link>http://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</link><pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate><guid>http://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</guid><description>
+&lt;p&gt;&lt;img src=&#34;./2021-02-18-screenshot-01.jpg&#34; alt=&#34;钉钉通知结果&#34; /&gt;&lt;/p&gt;</description></item><item><title>About</title><link>http://alfredyoung.club/about/</link><pubDate>Tue, 09 Apr 2019 00:00:00 +0000</pubDate><guid>http://alfredyoung.club/about/</guid><description>&lt;p&gt;Hey there ~ Here&amp;rsquo;s my contact:&lt;/p&gt;
+&lt;p&gt;Email: ych1994512@gmail.com&lt;/p&gt;
+&lt;p&gt;Tg: &lt;a href=&#34;https://t.me/ElfridY&#34; target=&#34;_blank&#34;&gt;click me&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Spring Cloud Eureka 服务搭建</title><link>http://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</link><pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate><guid>http://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</guid><description>
 &lt;blockquote&gt;
 &lt;p&gt;该系列文章均转自 &lt;a href=&#34;https://blog.csdn.net/hubo_88/article/details/80520850&#34; target=&#34;_blank&#34;&gt;CSDN: hubo_88&lt;/a&gt;, 因文章较多,故统一转入自己博客方便查阅.&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -464,6 +466,4 @@ name: spring-demo-service
 &lt;p&gt;&lt;img src=&#34;https://img-blog.csdn.net/20180531125144892?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1Ym9fODg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70&#34; alt=&#34;register success&#34; title=&#34;服务注册成功&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;在Eureka的控制台上已经看到应用名，证明服务提供者已经成功注册在Eureka上了&lt;/p&gt;
 &lt;h4 id=&#34;7-浏览器访问-显示成功&#34;&gt;7.浏览器访问, 显示成功&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;https://img-blog.csdn.net/2018053112535459?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1Ym9fODg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70&#34; alt=&#34;request success&#34; title=&#34;访问成功&#34; /&gt;&lt;/p&gt;</description></item><item><title>About Hugo</title><link>http://alfredyoung.club/about/</link><pubDate>Wed, 09 Apr 2014 00:00:00 +0000</pubDate><guid>http://alfredyoung.club/about/</guid><description>&lt;p&gt;Hey there ~ Here&amp;rsquo;s my contact:&lt;/p&gt;
-&lt;p&gt;Email: ych1994512@gmail.com&lt;/p&gt;
-&lt;p&gt;Tg: &lt;a href=&#34;https://t.me/ElfridY&#34; target=&#34;_blank&#34;&gt;click me&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;&lt;img src=&#34;https://img-blog.csdn.net/2018053112535459?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2h1Ym9fODg=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70&#34; alt=&#34;request success&#34; title=&#34;访问成功&#34; /&gt;&lt;/p&gt;</description></item></channel></rss>
