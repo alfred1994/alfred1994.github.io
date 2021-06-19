@@ -1,0 +1,724 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="65373724-1552-4ab1-8e04-77721d400ecc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/deploy.sh" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/themes/LeaveIt/layouts/partials/seo_schema.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="303">
+              <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/deploy.sh">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>@context</find>
+      <find>class=menu-item</find>
+      <find>image</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Alfred &lt;chyoung1994@foxmail.com&gt;" />
+      </list>
+    </option>
+    <option name="UPDATE_TYPE" value="MERGE" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="hugo_src" />
+      </map>
+    </option>
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/content/posts/let's create a new theme.md" />
+        <option value="$PROJECT_DIR$/config.toml" />
+        <option value="$PROJECT_DIR$/themes/LeaveIt/layouts/partials/seo_schema.html" />
+        <option value="$PROJECT_DIR$/public/tags/theme/index.html" />
+        <option value="$PROJECT_DIR$/content/about.md" />
+        <option value="$PROJECT_DIR$/content/posts/migrate from jekyll.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/deploy.sh" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="y" value="23" />
+    <option name="width" value="1680" />
+    <option name="height" value="1027" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="alfred1994.github.io" type="b2602c69:ProjectViewProjectNode" />
+              <item name="alfred1994.github.io" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546313657212" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="65373724-1552-4ab1-8e04-77721d400ecc" name="Default Changelist" comment="" />
+      <created>1546240121970</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1546240121970</updated>
+      <workItem from="1546240126060" duration="2867000" />
+      <workItem from="1546250908067" duration="2847000" />
+      <workItem from="1546269708828" duration="5382000" />
+      <workItem from="1546312624554" duration="1063000" />
+    </task>
+    <task id="LOCAL-00001" summary="add theme;">
+      <created>1546250204777</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1546250204777</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add theme;">
+      <created>1546250380547</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1546250380547</updated>
+    </task>
+    <task id="LOCAL-00003" summary="add theme">
+      <created>1546250442808</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1546250442808</updated>
+    </task>
+    <task id="LOCAL-00004" summary="first update">
+      <created>1546250531074</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1546250531074</updated>
+    </task>
+    <task id="LOCAL-00005" summary="first update">
+      <created>1546250954698</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1546250954698</updated>
+    </task>
+    <task id="LOCAL-00006" summary="coming soon">
+      <created>1546251429559</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1546251429559</updated>
+    </task>
+    <task id="LOCAL-00007" summary="doc: fill article list">
+      <created>1546271667058</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1546271667058</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update production build;">
+      <created>1546271880720</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1546271880720</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update production build;">
+      <created>1546272563075</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1546272563075</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update production build;">
+      <created>1546272718438</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1546272718438</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update production build;">
+      <created>1546272891274</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1546272891274</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update production build;">
+      <created>1546308620471</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1546308620471</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update production build;">
+      <created>1546312872156</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1546312872156</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="12159000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1680" height="1027" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25885227" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295964" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3295964" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" weight="0.3295964" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Theme Preview" order="4" />
+      <window_info anchor="right" id="Maven" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Database" order="8" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/themes/AllinOne" />
+      <path value="$PROJECT_DIR$/themes/BeyondNothing" />
+      <path value="$PROJECT_DIR$/themes/Midnight" />
+      <path value="$PROJECT_DIR$/themes/Shapez-Theme" />
+      <path value="$PROJECT_DIR$/themes/academic" />
+      <path value="$PROJECT_DIR$/themes/aerial" />
+      <path value="$PROJECT_DIR$/themes/aether" />
+      <path value="$PROJECT_DIR$/themes/agency" />
+      <path value="$PROJECT_DIR$/themes/air" />
+      <path value="$PROJECT_DIR$/themes/airspace-hugo" />
+      <path value="$PROJECT_DIR$/themes/ajonp-hugo-ionic" />
+      <path value="$PROJECT_DIR$/themes/allegiant" />
+      <path value="$PROJECT_DIR$/themes/alpha-church" />
+      <path value="$PROJECT_DIR$/themes/amp" />
+      <path value="$PROJECT_DIR$/themes/angels-ladder" />
+      <path value="$PROJECT_DIR$/themes/anybodyhome" />
+      <path value="$PROJECT_DIR$/themes/arabica" />
+      <path value="$PROJECT_DIR$/themes/artists" />
+      <path value="$PROJECT_DIR$/themes/athena-hugo-theme" />
+      <path value="$PROJECT_DIR$/themes/aurora" />
+      <path value="$PROJECT_DIR$/themes/base16" />
+      <path value="$PROJECT_DIR$/themes/basics" />
+      <path value="$PROJECT_DIR$/themes/beautifulhugo" />
+      <path value="$PROJECT_DIR$/themes/beg" />
+      <path value="$PROJECT_DIR$/themes/bilberry-hugo-theme" />
+      <path value="$PROJECT_DIR$/themes/black-and-light" />
+      <path value="$PROJECT_DIR$/themes/blackburn" />
+      <path value="$PROJECT_DIR$/themes/blank" />
+      <path value="$PROJECT_DIR$/themes/bootie-docs" />
+      <path value="$PROJECT_DIR$/themes/bootstrap-bp-hugo-theme" />
+      <path value="$PROJECT_DIR$/themes/bulma" />
+      <path value="$PROJECT_DIR$/themes/cactus" />
+      <path value="$PROJECT_DIR$/themes/capsule" />
+      <path value="$PROJECT_DIR$/themes/casper" />
+      <path value="$PROJECT_DIR$/themes/castanet" />
+      <path value="$PROJECT_DIR$/themes/charaka-hugo-theme" />
+      <path value="$PROJECT_DIR$/themes/classless-hugo" />
+      <path value="$PROJECT_DIR$/themes/cocoa" />
+      <path value="$PROJECT_DIR$/themes/cocoa-eh-hugo-theme" />
+      <path value="$PROJECT_DIR$/themes/crab" />
+      <path value="$PROJECT_DIR$/themes/creative" />
+      <path value="$PROJECT_DIR$/themes/cstate" />
+      <path value="$PROJECT_DIR$/themes/darksimplicity" />
+      <path value="$PROJECT_DIR$/themes/detox" />
+      <path value="$PROJECT_DIR$/themes/dimension" />
+      <path value="$PROJECT_DIR$/themes/docdock" />
+      <path value="$PROJECT_DIR$/themes/docuapi" />
+      <path value="$PROJECT_DIR$/themes/elephants" />
+      <path value="$PROJECT_DIR$/themes/engimo" />
+      <path value="$PROJECT_DIR$/themes/er" />
+      <path value="$PROJECT_DIR$/themes/evie-hugo" />
+      <path value="$PROJECT_DIR$/themes/forty" />
+      <path value="$PROJECT_DIR$/themes/foundation-theme" />
+      <path value="$PROJECT_DIR$/themes/freelancer" />
+      <path value="$PROJECT_DIR$/themes/future-imperfect" />
+      <path value="$PROJECT_DIR$/themes/ghostwriter" />
+      <path value="$PROJECT_DIR$/themes/gindoro" />
+      <path value="$PROJECT_DIR$/themes/github-project-landing-page" />
+      <path value="$PROJECT_DIR$/themes/gohugo-amp" />
+      <path value="$PROJECT_DIR$/themes/gohugo-theme-ananke" />
+      <path value="$PROJECT_DIR$/themes/gohugo-theme-yinwang" />
+      <path value="$PROJECT_DIR$/themes/grid-side" />
+      <path value="$PROJECT_DIR$/themes/hallo-hugo" />
+      <path value="$PROJECT_DIR$/themes/heather-hugo" />
+      <path value="$PROJECT_DIR$/themes/hermit" />
+      <path value="$PROJECT_DIR$/themes/herring-cove" />
+      <path value="$PROJECT_DIR$/themes/hestia-pure" />
+      <path value="$PROJECT_DIR$/themes/highlights" />
+      <path value="$PROJECT_DIR$/themes/hikari" />
+      <path value="$PROJECT_DIR$/themes/hpstr-hugo-theme" />
+      <path value="$PROJECT_DIR$/themes/html5" />
+      <path value="$PROJECT_DIR$/themes/hugo-alabaster-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-alageek-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-apps-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-assembly" />
+      <path value="$PROJECT_DIR$/themes/hugo-bare-min-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-bare-min-theme/exampleSite/themes/hugo-bare-min-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-bare-min-theme/exampleSite/themes/hugo-debugprint" />
+      <path value="$PROJECT_DIR$/themes/hugo-bare-min-theme/exampleSite/themes/hugo-search-fuse-js" />
+      <path value="$PROJECT_DIR$/themes/hugo-base-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-base-theme/exampleSite/hugo-base-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-bingo" />
+      <path value="$PROJECT_DIR$/themes/hugo-blog-jeffprod" />
+      <path value="$PROJECT_DIR$/themes/hugo-book" />
+      <path value="$PROJECT_DIR$/themes/hugo-bootstrap" />
+      <path value="$PROJECT_DIR$/themes/hugo-bootstrap-premium" />
+      <path value="$PROJECT_DIR$/themes/hugo-bootswatch" />
+      <path value="$PROJECT_DIR$/themes/hugo-cards" />
+      <path value="$PROJECT_DIR$/themes/hugo-casper-two" />
+      <path value="$PROJECT_DIR$/themes/hugo-changelog-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-changelog-theme/assets/spectre" />
+      <path value="$PROJECT_DIR$/themes/hugo-classic" />
+      <path value="$PROJECT_DIR$/themes/hugo-code-editor-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-coder" />
+      <path value="$PROJECT_DIR$/themes/hugo-coder-portfolio" />
+      <path value="$PROJECT_DIR$/themes/hugo-conference" />
+      <path value="$PROJECT_DIR$/themes/hugo-creative-portfolio-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-darkdoc-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-dgraph-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-dream-plus" />
+      <path value="$PROJECT_DIR$/themes/hugo-dusk" />
+      <path value="$PROJECT_DIR$/themes/hugo-dusky-neon-potato" />
+      <path value="$PROJECT_DIR$/themes/hugo-elate-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-fabric" />
+      <path value="$PROJECT_DIR$/themes/hugo-faq-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-finite" />
+      <path value="$PROJECT_DIR$/themes/hugo-frais" />
+      <path value="$PROJECT_DIR$/themes/hugo-fresh" />
+      <path value="$PROJECT_DIR$/themes/hugo-gentoo-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-geo" />
+      <path value="$PROJECT_DIR$/themes/hugo-goa" />
+      <path value="$PROJECT_DIR$/themes/hugo-grapes" />
+      <path value="$PROJECT_DIR$/themes/hugo-h5bp" />
+      <path value="$PROJECT_DIR$/themes/hugo-hello-programmer-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-icarus" />
+      <path value="$PROJECT_DIR$/themes/hugo-icon" />
+      <path value="$PROJECT_DIR$/themes/hugo-identity-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-initio" />
+      <path value="$PROJECT_DIR$/themes/hugo-journal" />
+      <path value="$PROJECT_DIR$/themes/hugo-kiera" />
+      <path value="$PROJECT_DIR$/themes/hugo-lamp" />
+      <path value="$PROJECT_DIR$/themes/hugo-lime" />
+      <path value="$PROJECT_DIR$/themes/hugo-lithium-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-lodi-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-luxury-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-material-blog" />
+      <path value="$PROJECT_DIR$/themes/hugo-mdl" />
+      <path value="$PROJECT_DIR$/themes/hugo-minimalist" />
+      <path value="$PROJECT_DIR$/themes/hugo-minimalist-spa" />
+      <path value="$PROJECT_DIR$/themes/hugo-multi-bootswatch" />
+      <path value="$PROJECT_DIR$/themes/hugo-natrium-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-nederburg-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-now" />
+      <path value="$PROJECT_DIR$/themes/hugo-now-ui" />
+      <path value="$PROJECT_DIR$/themes/hugo-nuo" />
+      <path value="$PROJECT_DIR$/themes/hugo-octopress" />
+      <path value="$PROJECT_DIR$/themes/hugo-oldnew-mashup" />
+      <path value="$PROJECT_DIR$/themes/hugo-orbit-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-pacman-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-paper" />
+      <path value="$PROJECT_DIR$/themes/hugo-phlat-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-plus" />
+      <path value="$PROJECT_DIR$/themes/hugo-remark-minion" />
+      <path value="$PROJECT_DIR$/themes/hugo-remark-twemoji" />
+      <path value="$PROJECT_DIR$/themes/hugo-resume" />
+      <path value="$PROJECT_DIR$/themes/hugo-serif-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-shopping-product-catalogue-simple" />
+      <path value="$PROJECT_DIR$/themes/hugo-simpledoc-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-sodium-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-split-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-startpage-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-stellar-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-sustain" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-arch" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-bootstrap4-blog" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-cactus-plus" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-cleanwhite" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-den" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-dopetrope" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-dream" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-even" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-hamburg" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-hello-friend" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-introduction" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-jane" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-lean-launch-page" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-learn" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-massively" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-minos" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-nix" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-one" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-revealjs" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-robotico" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-rusty" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-sam" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-techdoc" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-techlog-simple" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-vec" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-w3css-basic" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-wave" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-winning" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-yinyang" />
+      <path value="$PROJECT_DIR$/themes/hugo-theme-zen" />
+      <path value="$PROJECT_DIR$/themes/hugo-tikva" />
+      <path value="$PROJECT_DIR$/themes/hugo-tracks-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-tranquilpeak-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-travelify-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-uilite" />
+      <path value="$PROJECT_DIR$/themes/hugo-universal-theme" />
+      <path value="$PROJECT_DIR$/themes/hugo-uno" />
+      <path value="$PROJECT_DIR$/themes/hugo-w3-simple" />
+      <path value="$PROJECT_DIR$/themes/hugo-xmag" />
+      <path value="$PROJECT_DIR$/themes/hugo-xmin" />
+      <path value="$PROJECT_DIR$/themes/hugo-zen" />
+      <path value="$PROJECT_DIR$/themes/hugo_eiio" />
+      <path value="$PROJECT_DIR$/themes/hugo_theme_adam_eve" />
+      <path value="$PROJECT_DIR$/themes/hugo_theme_pickles" />
+      <path value="$PROJECT_DIR$/themes/hugograyscale" />
+      <path value="$PROJECT_DIR$/themes/hugoscroll" />
+      <path value="$PROJECT_DIR$/themes/hugotube" />
+      <path value="$PROJECT_DIR$/themes/hugrid" />
+      <path value="$PROJECT_DIR$/themes/hurock" />
+      <path value="$PROJECT_DIR$/themes/hyde-hyde" />
+      <path value="$PROJECT_DIR$/themes/hyde-y" />
+      <path value="$PROJECT_DIR$/themes/indigo" />
+      <path value="$PROJECT_DIR$/themes/infinity-hugo" />
+      <path value="$PROJECT_DIR$/themes/internet-weblog" />
+      <path value="$PROJECT_DIR$/themes/journal" />
+      <path value="$PROJECT_DIR$/themes/kiss" />
+      <path value="$PROJECT_DIR$/themes/kraiklyn" />
+      <path value="$PROJECT_DIR$/themes/kube" />
+      <path value="$PROJECT_DIR$/themes/landing-page-hugo" />
+      <path value="$PROJECT_DIR$/themes/landing-page-hugo/exampleSite/landing-page-hugo" />
+      <path value="$PROJECT_DIR$/themes/lanyon" />
+      <path value="$PROJECT_DIR$/themes/light-hugo" />
+      <path value="$PROJECT_DIR$/themes/light-hugo/modules/evil-icons" />
+      <path value="$PROJECT_DIR$/themes/light-hugo/modules/normalize-scss" />
+      <path value="$PROJECT_DIR$/themes/liquorice" />
+      <path value="$PROJECT_DIR$/themes/mainroad" />
+      <path value="$PROJECT_DIR$/themes/manis-hugo-theme" />
+      <path value="$PROJECT_DIR$/themes/martial-paper" />
+      <path value="$PROJECT_DIR$/themes/material-design" />
+      <path value="$PROJECT_DIR$/themes/material-lite" />
+      <path value="$PROJECT_DIR$/themes/mediumish-gohugo-theme" />
+      <path value="$PROJECT_DIR$/themes/meghna-hugo" />
+      <path value="$PROJECT_DIR$/themes/min_night" />
+      <path value="$PROJECT_DIR$/themes/minimage" />
+      <path value="$PROJECT_DIR$/themes/minimal" />
+      <path value="$PROJECT_DIR$/themes/minimal-academic" />
+      <path value="$PROJECT_DIR$/themes/minimal-bootstrap-hugo-theme" />
+      <path value="$PROJECT_DIR$/themes/minimo" />
+      <path value="$PROJECT_DIR$/themes/navigator-hugo" />
+      <path value="$PROJECT_DIR$/themes/newsprint" />
+      <path value="$PROJECT_DIR$/themes/next" />
+      <path value="$PROJECT_DIR$/themes/nixon" />
+      <path value="$PROJECT_DIR$/themes/nofancy" />
+      <path value="$PROJECT_DIR$/themes/onetwothree" />
+      <path value="$PROJECT_DIR$/themes/osprey" />
+      <path value="$PROJECT_DIR$/themes/paperback" />
+      <path value="$PROJECT_DIR$/themes/persona" />
+      <path value="$PROJECT_DIR$/themes/phugo" />
+      <path value="$PROJECT_DIR$/themes/pixyll" />
+      <path value="$PROJECT_DIR$/themes/plain-blog" />
+      <path value="$PROJECT_DIR$/themes/polymer" />
+      <path value="$PROJECT_DIR$/themes/potato-dark" />
+      <path value="$PROJECT_DIR$/themes/pristine" />
+      <path value="$PROJECT_DIR$/themes/projecthub" />
+      <path value="$PROJECT_DIR$/themes/prologue" />
+      <path value="$PROJECT_DIR$/themes/purehugo" />
+      <path value="$PROJECT_DIR$/themes/redlounge" />
+      <path value="$PROJECT_DIR$/themes/retrofulhugo" />
+      <path value="$PROJECT_DIR$/themes/reveal-hugo" />
+      <path value="$PROJECT_DIR$/themes/rocktopus" />
+      <path value="$PROJECT_DIR$/themes/sada" />
+      <path value="$PROJECT_DIR$/themes/saito-boilerplate" />
+      <path value="$PROJECT_DIR$/themes/seminyak" />
+      <path value="$PROJECT_DIR$/themes/shiori" />
+      <path value="$PROJECT_DIR$/themes/silhouette-hugo" />
+      <path value="$PROJECT_DIR$/themes/simple-a" />
+      <path value="$PROJECT_DIR$/themes/simple-hugo" />
+      <path value="$PROJECT_DIR$/themes/simpleblox" />
+      <path value="$PROJECT_DIR$/themes/simpleit-hugo-theme" />
+      <path value="$PROJECT_DIR$/themes/simplicity" />
+      <path value="$PROJECT_DIR$/themes/slate" />
+      <path value="$PROJECT_DIR$/themes/slick" />
+      <path value="$PROJECT_DIR$/themes/slick/exampleSite/themes/slick" />
+      <path value="$PROJECT_DIR$/themes/slim" />
+      <path value="$PROJECT_DIR$/themes/sofya" />
+      <path value="$PROJECT_DIR$/themes/startbootstrap-clean-blog" />
+      <path value="$PROJECT_DIR$/themes/steam" />
+      <path value="$PROJECT_DIR$/themes/story" />
+      <path value="$PROJECT_DIR$/themes/strange-case" />
+      <path value="$PROJECT_DIR$/themes/strata" />
+      <path value="$PROJECT_DIR$/themes/sublime-hugo-theme" />
+      <path value="$PROJECT_DIR$/themes/tachyons" />
+      <path value="$PROJECT_DIR$/themes/tale-hugo" />
+      <path value="$PROJECT_DIR$/themes/temple" />
+      <path value="$PROJECT_DIR$/themes/theer" />
+      <path value="$PROJECT_DIR$/themes/timer-hugo" />
+      <path value="$PROJECT_DIR$/themes/twentyfourteen" />
+      <path value="$PROJECT_DIR$/themes/type" />
+      <path value="$PROJECT_DIR$/themes/vex-hugo" />
+      <path value="$PROJECT_DIR$/themes/vienna" />
+      <path value="$PROJECT_DIR$/themes/whiteplain" />
+      <path value="$PROJECT_DIR$/themes/would-have-been-cool-in-the-80s" />
+      <path value="$PROJECT_DIR$/themes/yourfolio" />
+    </ignored-roots>
+    <MESSAGE value="add theme;" />
+    <MESSAGE value="add theme" />
+    <MESSAGE value="first update" />
+    <MESSAGE value="coming soon" />
+    <MESSAGE value="doc: fill article list" />
+    <MESSAGE value="update production build;" />
+    <option name="LAST_COMMIT_MESSAGE" value="update production build;" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/themes/README.md" />
+    <entry file="file://$PROJECT_DIR$/README.md" />
+    <entry file="file://$PROJECT_DIR$/themes/buildThemeSite.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="16" lean-forward="true" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/tags/theme/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="157" selection-start-line="9" selection-start-column="157" selection-end-line="9" selection-end-column="157" />
+          <folding>
+            <element signature="e#714#719#0" expanded="true" />
+            <element signature="e#1287#1293#1" expanded="true" />
+            <element signature="e#1327#1332#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/about.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="161">
+            <caret line="7" selection-start-line="7" selection-end-line="7" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.toml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1081">
+          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/posts/let's create a new theme.md">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="552">
+            <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/content/posts/migrate from jekyll.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="138">
+            <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/LeaveIt/layouts/partials/seo_schema.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="25" column="40" selection-start-line="25" selection-start-column="40" selection-end-line="25" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/deploy.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

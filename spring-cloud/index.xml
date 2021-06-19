@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring Cloud on Alfred&#39;s Blog</title>
+    <link>https://alfredyoung.club/categories/spring-cloud/</link>
+    <description>Recent content in Spring Cloud on Alfred&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Apr 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alfredyoung.club/categories/spring-cloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>通过Spring Boot Admin实现服务上下线的即时钉钉通知</title>
+      <link>https://alfredyoung.club/2019/%E9%80%9A%E8%BF%87spring-boot-admin%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E4%B8%8A%E4%B8%8B%E7%BA%BF%E7%9A%84%E5%8D%B3%E6%97%B6%E9%92%89%E9%92%89%E9%80%9A%E7%9F%A5/</link>
+      <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://alfredyoung.club/2019/%E9%80%9A%E8%BF%87spring-boot-admin%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E4%B8%8A%E4%B8%8B%E7%BA%BF%E7%9A%84%E5%8D%B3%E6%97%B6%E9%92%89%E9%92%89%E9%80%9A%E7%9F%A5/</guid>
+      <description>1. 背景 在微服务里肯定少不了服务监控，Spring Boot Admin（以下简称SPA）虽然不是一个官方项目，但是在开源社区里的热度比较高。SPA的接入简单快速、UI简洁明了，如果使用了Spring Cloud，服务端只需要接入注册中心即可接收到其他服务通过endpoints暴露的健康检查数据。但是这样肯定还不够，但服务出现严重错误导致下线时我们需要能快速及时的接受到通知。在SPA的官方文档上能看到虽然已经自带支持了Notifications，但是大多都是支持的国外的远程协作和通讯工具。至于邮件通知，虽然是可以做到但是消息即时性太慢了，所以决定通过钉钉群机器人的消息通知API实现。
+2. 实现 查看源码，发现在de.codecentric.boot.admin.server下有个包叫notify,里面有很多官方已经自实现的国外聊天工具的Notifier类，依次打开观察后发现都继承了AbstractEventNotifier这么一个抽象类，并实现了其中的以下的方法来实现主动通知：
+protected abstract Mono&amp;lt;Void&amp;gt; doNotify(InstanceEvent event, Instance instance);  可以看到这里用到了Reactor类库，也就是响应式编程。对于大部分习惯了传统编程方式的人来说（就是我没错），是很难直接切换过来的，它需要你转变自己的一个思维方式。 这里代码中出现的Mono和Flux是响应式中的两个重要基础概念，总的来说就是规定了两种响应流式范式，它们让数据具备了一些新的特性，比如基于发布订阅的事件驱动、异步流、背压等。关于Reactor的详细介绍等日后有时间再详细整理，这里就先略过。
+参考官方已经实现服务提醒类中的同方法：
+@Override protected Mono&amp;lt;Void&amp;gt; doNotify(InstanceEvent event, Instance instance) { return Mono.fromRunnable( () -&amp;gt; restTemplate.postForEntity(buildUrl(), createHipChatNotification(event, instance), Void.class)); }8  这里可以大概看到发出了一个无值的异步线程，并用http post请求了某个消息发送接口，那么我们这里基本上也是相同的实现方式，稍作修改（复制黏贴）即可。
+2.1 配置钉钉机器人webhook 在钉钉群里设置添加一下就好了，主要是拿到url。
+2.2 重写消息通知方法 直接贴出完整代码，这里继承AbstractEventNotifier 或者AbstractStatusChangeNotifier都可以。除了doNotify方法外，其他代码只需要构建出钉钉机器人消息通知API所需的数据结构即可。看了下钉钉文档文案样式支持markdown，这里就顺便支持了一下。
+@Component public class DingTalkNotifier extends AbstractStatusChangeNotifier { private static final String DEFAULT_MESSAGE = &amp;quot;# #{instance.registration.name} (#{instance.id}) is **#{event.statusInfo.status}**&amp;quot;; private final SpelExpressionParser parser = new SpelExpressionParser(); private RestTemplate restTemplate = new RestTemplate(); @Value(&amp;quot;${spring.</description>
+    </item>
+    
+    <item>
+      <title>Spring Cloud Eureka 服务搭建</title>
+      <link>https://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Wed, 06 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</guid>
+      <description>该系列文章均转自 CSDN: hubo_88, 因文章较多,故统一转入自己博客方便查阅.
+ 搭建服务注册中心 Spring Cloud Eureka是Spring Cloud Netflix服务套件中的一部分,它基于Netflix Eureka做了二次封装,主要负责完成微服务架构中的服务治理功能.
+1.构建一个Maven项目 注：这里 Create from archetype 可以不用勾选，直接构建一个空的 maven 项目。
+可以在 maven 主项目里统一管理各个子项目所引用的依赖版本，这一系列项目所用的 Spring Cloud 版本为 Finchley.RC1， Spring Boot 版本为 2.0.1.RELEASE， JDK 为 1.8
+pom.xml:
+&amp;lt;properties&amp;gt; &amp;lt;project.build.sourceEncoding&amp;gt;UTF-8&amp;lt;/project.build.sourceEncoding&amp;gt; &amp;lt;project.reporting.outputEncoding&amp;gt;UTF-8&amp;lt;/project.reporting.outputEncoding&amp;gt; &amp;lt;java.version&amp;gt;1.8&amp;lt;/java.version&amp;gt; &amp;lt;spring-cloud.version&amp;gt;Finchley.RC1&amp;lt;/spring-cloud.version&amp;gt; &amp;lt;spring-boot.version&amp;gt;2.0.1.RELEASE&amp;lt;/spring-boot.version&amp;gt; &amp;lt;/properties&amp;gt; &amp;lt;dependencyManagement&amp;gt; &amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-cloud-dependencies&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring-cloud.version}&amp;lt;/version&amp;gt; &amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt; &amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;spring-boot-dependencies&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${spring-boot.version}&amp;lt;/version&amp;gt; &amp;lt;type&amp;gt;pom&amp;lt;/type&amp;gt; &amp;lt;scope&amp;gt;import&amp;lt;/scope&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;/dependencies&amp;gt; &amp;lt;/dependencyManagement&amp;gt;  2.创建一个module, 作为服务注册中心 Eureka Server. 注：这里 Create from archetype 仍然不用勾选，直接构建一个空的 maven 项目。</description>
+    </item>
+    
+  </channel>
+</rss>
