@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on Alfred&#39;s Blog</title>
+    <link>https://alfredyoung.club/tags/java/</link>
+    <description>Recent content in java on Alfred&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Jun 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://alfredyoung.club/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用Google Jib简化并加速Docker应用镜像的构建</title>
+      <link>https://alfredyoung.club/2020/%E4%BD%BF%E7%94%A8google-jib%E7%AE%80%E5%8C%96%E5%B9%B6%E5%8A%A0%E9%80%9Fdocker%E5%BA%94%E7%94%A8%E9%95%9C%E5%83%8F%E7%9A%84%E6%9E%84%E5%BB%BA/</link>
+      <pubDate>Fri, 12 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://alfredyoung.club/2020/%E4%BD%BF%E7%94%A8google-jib%E7%AE%80%E5%8C%96%E5%B9%B6%E5%8A%A0%E9%80%9Fdocker%E5%BA%94%E7%94%A8%E9%95%9C%E5%83%8F%E7%9A%84%E6%9E%84%E5%BB%BA/</guid>
+      <description>1. 背景 在初步实现了基于GitLab + Docker的自动CI/CD流水线后,
+如何优化其中的CI脚本步骤和打包部署成为了接下来的问题.仔细查看了GitLab CI的某条流水线运行日志后发现, 在拉取新打包的镜像时间耗时较多,镜像的最后一个layer体积很大,是整个应用jar包的大小.
+如此一来的弊端就能明显了, 一是这样构建出来的每个镜像都是jar包的大小, 几个历史版本遗留下来, 占用的存储空间基本上就已经接近1个G了. 其次是每次pull和push的时候也都会占用大量的带宽.
+所以,完美的镜像分层是应该把jar包中再细分为依赖库层和代码层的, 但是按照目前DockerFile打包的形式无法实现依赖与代码的分层剥离.
+2. 解决 刚开始研究时, 先是找到了Spotify开发的一个dockerFile的maven插件,它是通过pom + dockerfile的形式配置来使用的.
+虽然是方便了不少, 省去了docker build..., docker tag..., docker push...等操作,但还是没有解决根本的镜像分层问题. 再后来,便是找到了Google出品的jib-maven-plugin. 它完美利用了Docker镜像的分层机制,
+并且不再需要编写Dockerfile文件,甚至都不需要启动docker daemon就能完成镜像的创建,一切都只需要通过pom文件配置即可.
+下面直接贴出成品:
+&amp;lt;plugin&amp;gt; &amp;lt;groupId&amp;gt;com.google.cloud.tools&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;jib-maven-plugin&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.8.0&amp;lt;/version&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;container&amp;gt; &amp;lt;ports&amp;gt; &amp;lt;port&amp;gt;8084&amp;lt;/port&amp;gt; &amp;lt;/ports&amp;gt; &amp;lt;creationTime&amp;gt;USE_CURRENT_TIMESTAMP&amp;lt;/creationTime&amp;gt; &amp;lt;entrypoint&amp;gt; &amp;lt;arg&amp;gt;/bin/sh&amp;lt;/arg&amp;gt; &amp;lt;arg&amp;gt;-c&amp;lt;/arg&amp;gt; &amp;lt;arg&amp;gt; java \ -Xms1024M \ -Xmx1024M \ -XX:MaxMetaspaceSize=256M \ -XX:MetaspaceSize=128M \ -XX:+UseG1GC \ -XX:MaxGCPauseMillis=100 \ -XX:+ParallelRefProcEnabled \ -XX:ErrorFile=/jvm-logs/hs_err_pid%p.log \ -Xloggc:/jvm-logs/gc.log -XX:+PrintGCDetails \ -XX:+PrintGCDateStamps \ -XX:+PrintClassHistogramBeforeFullGC \ -XX:+PrintClassHistogramAfterFullGC \ -XX:+PrintTenuringDistribution \ -XX:+HeapDumpOnOutOfMemoryError \ -XX:HeapDumpPath=/jvm-logs/ \ -cp /app/resources/:/app/classes/:/app/libs/* com.</description>
+    </item>
+    
+  </channel>
+</rss>
