@@ -1,85 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-    <url>
-      <loc>https://alfredyoung.club/</loc>
-      
-      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://alfredyoung.club/categories/</loc>
-      
-      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://alfredyoung.club/tags/docker/</loc>
-      
-      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://alfredyoung.club/categories/java/</loc>
-      
-      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://alfredyoung.club/tags/jvm/</loc>
-      
-      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://alfredyoung.club/tags/linux/</loc>
-      
-      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://alfredyoung.club/posts/</loc>
-      
-      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://alfredyoung.club/tags/</loc>
-      
-      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
   
     <url>
       <loc>https://alfredyoung.club/2021/%E4%BD%BF%E7%94%A8arthas%E7%83%AD%E6%9B%B4%E6%96%B0%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E7%9A%84%E5%BA%94%E7%94%A8%E4%BB%A3%E7%A0%81/</loc>
@@ -92,49 +13,9 @@
     </url>
   
     <url>
-      <loc>https://alfredyoung.club/categories/docker/</loc>
-      
-      <lastmod>2020-06-12T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://alfredyoung.club/tags/java/</loc>
-      
-      <lastmod>2020-06-12T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://alfredyoung.club/tags/maven/</loc>
-      
-      <lastmod>2020-06-12T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>https://alfredyoung.club/2020/%E4%BD%BF%E7%94%A8google-jib%E7%AE%80%E5%8C%96%E5%B9%B6%E5%8A%A0%E9%80%9Fdocker%E5%BA%94%E7%94%A8%E9%95%9C%E5%83%8F%E7%9A%84%E6%9E%84%E5%BB%BA/</loc>
       
       <lastmod>2020-06-12T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://alfredyoung.club/tags/gitlab/</loc>
-      
-      <lastmod>2019-08-30T00:00:00+00:00</lastmod>
       
       
       
@@ -162,26 +43,6 @@
     </url>
   
     <url>
-      <loc>https://alfredyoung.club/categories/spring-cloud/</loc>
-      
-      <lastmod>2019-04-23T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
-      <loc>https://alfredyoung.club/tags/spring-cloud/</loc>
-      
-      <lastmod>2019-04-23T00:00:00+00:00</lastmod>
-      
-      
-      
-      
-    </url>
-  
-    <url>
       <loc>https://alfredyoung.club/2019/%E9%80%9A%E8%BF%87spring-boot-admin%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E4%B8%8A%E4%B8%8B%E7%BA%BF%E7%9A%84%E5%8D%B3%E6%97%B6%E9%92%89%E9%92%89%E9%80%9A%E7%9F%A5/</loc>
       
       <lastmod>2019-04-23T00:00:00+00:00</lastmod>
@@ -202,11 +63,45 @@
     </url>
   
     <url>
+      <loc>https://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</loc>
+      
+      <lastmod>2019-03-06T00:00:00+00:00</lastmod>
+      
+      
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/</loc>
+      
+      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
       <loc>https://alfredyoung.club/tags/blog/</loc>
       
       <lastmod>2019-03-06T00:00:00+00:00</lastmod>
       
       
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/categories/</loc>
+      
+      
+      
+      <priority>0</priority>
       
       
     </url>
@@ -218,15 +113,151 @@
       
       
       
+      <priority>0</priority>
+      
       
     </url>
   
     <url>
-      <loc>https://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/</loc>
+      <loc>https://alfredyoung.club/posts/</loc>
+      
+      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/tags/spring-cloud/</loc>
+      
+      <lastmod>2019-04-23T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/categories/spring-cloud/</loc>
+      
+      <lastmod>2019-04-23T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/tags/</loc>
       
       <lastmod>2019-03-06T00:00:00+00:00</lastmod>
       
       
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/tags/docker/</loc>
+      
+      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/categories/docker/</loc>
+      
+      <lastmod>2020-06-12T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/tags/gitlab/</loc>
+      
+      <lastmod>2019-08-30T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/tags/java/</loc>
+      
+      <lastmod>2020-06-12T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/categories/java/</loc>
+      
+      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/tags/jvm/</loc>
+      
+      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/tags/linux/</loc>
+      
+      <lastmod>2021-04-23T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
+      
+      
+    </url>
+  
+    <url>
+      <loc>https://alfredyoung.club/tags/maven/</loc>
+      
+      <lastmod>2020-06-12T00:00:00+00:00</lastmod>
+      
+      
+      
+      <priority>0</priority>
       
       
     </url>

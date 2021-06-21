@@ -41,12 +41,17 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https:\/\/alfredyoung.club\/"
+         "@id": "https://alfredyoung.club/"
     },
     "articleSection" : "posts",
     "name" : "Spring Cloud Eureka 服务搭建",
     "headline" : "Spring Cloud Eureka 服务搭建",
-    "description" : "该系列文章均转自 CSDN: hubo_88, 因文章较多,故统一转入自己博客方便查阅.\n 搭建服务注册中心 Spring Cloud Eureka是Spring Cloud Netflix服务套件中的一部分,它基于Netflix Eureka做了二次封装,主要负责完成微服务架构中的服务治理功能.\n1.构建一个Maven项目 注：这里 Create from archetype 可以不用勾选，直接构建一个空的 maven 项目。\n可以在 maven 主项目里统一管理各个子项目所引用的依赖版本，这一系列项目所用的 Spring Cloud 版本为 Finchley.RC1， Spring Boot 版本为 2.0.1.RELEASE， JDK 为 1.8\npom.xml:\n\x26lt;properties\x26gt; \x26lt;project.build.sourceEncoding\x26gt;UTF-8\x26lt;\/project.build.sourceEncoding\x26gt; \x26lt;project.reporting.outputEncoding\x26gt;UTF-8\x26lt;\/project.reporting.outputEncoding\x26gt; \x26lt;java.version\x26gt;1.8\x26lt;\/java.version\x26gt; \x26lt;spring-cloud.version\x26gt;Finchley.RC1\x26lt;\/spring-cloud.version\x26gt; \x26lt;spring-boot.version\x26gt;2.0.1.RELEASE\x26lt;\/spring-boot.version\x26gt; \x26lt;\/properties\x26gt; \x26lt;dependencyManagement\x26gt; \x26lt;dependencies\x26gt; \x26lt;dependency\x26gt; \x26lt;groupId\x26gt;org.springframework.cloud\x26lt;\/groupId\x26gt; \x26lt;artifactId\x26gt;spring-cloud-dependencies\x26lt;\/artifactId\x26gt; \x26lt;version\x26gt;${spring-cloud.version}\x26lt;\/version\x26gt; \x26lt;type\x26gt;pom\x26lt;\/type\x26gt; \x26lt;scope\x26gt;import\x26lt;\/scope\x26gt; \x26lt;\/dependency\x26gt; \x26lt;dependency\x26gt; \x26lt;groupId\x26gt;org.springframework.boot\x26lt;\/groupId\x26gt; \x26lt;artifactId\x26gt;spring-boot-dependencies\x26lt;\/artifactId\x26gt; \x26lt;version\x26gt;${spring-boot.version}\x26lt;\/version\x26gt; \x26lt;type\x26gt;pom\x26lt;\/type\x26gt; \x26lt;scope\x26gt;import\x26lt;\/scope\x26gt; \x26lt;\/dependency\x26gt; \x26lt;\/dependencies\x26gt; \x26lt;\/dependencyManagement\x26gt;  2.创建一个module, 作为服务注册中心 Eureka Server. 注：这里 Create from archetype 仍然不用勾选，直接构建一个空的 maven 项目。",
+    "description" : "该系列文章均转自 CSDN: hubo_88, 因文章较多,故统一转入自己博客方便查阅.
+ 搭建服务注册中心 Spring Cloud Eureka是Spring Cloud Netflix服务套件中的一部分,它基于Netflix Eureka做了二次封装,主要负责完成微服务架构中的服务治理功能.
+1.构建一个Maven项目 注：这里 Create from archetype 可以不用勾选，直接构建一个空的 maven 项目。
+可以在 maven 主项目里统一管理各个子项目所引用的依赖版本，这一系列项目所用的 Spring Cloud 版本为 Finchley.RC1， Spring Boot 版本为 2.0.1.RELEASE， JDK 为 1.8
+pom.xml:
+&lt;properties&gt; &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt; &lt;project.reporting.outputEncoding&gt;UTF-8&lt;/project.reporting.outputEncoding&gt; &lt;java.version&gt;1.8&lt;/java.version&gt; &lt;spring-cloud.version&gt;Finchley.RC1&lt;/spring-cloud.version&gt; &lt;spring-boot.version&gt;2.0.1.RELEASE&lt;/spring-boot.version&gt; &lt;/properties&gt; &lt;dependencyManagement&gt; &lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt; &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt; &lt;version&gt;${spring-cloud.version}&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;dependency&gt; &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt; &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt; &lt;version&gt;${spring-boot.version}&lt;/version&gt; &lt;type&gt;pom&lt;/type&gt; &lt;scope&gt;import&lt;/scope&gt; &lt;/dependency&gt; &lt;/dependencies&gt; &lt;/dependencyManagement&gt;  2.创建一个module, 作为服务注册中心 Eureka Server. 注：这里 Create from archetype 仍然不用勾选，直接构建一个空的 maven 项目。",
     "inLanguage" : "en-us",
     "author" : "Alfred Young",
     "creator" : "Alfred Young",
@@ -54,11 +59,11 @@
     "accountablePerson" : "Alfred Young",
     "copyrightHolder" : "Alfred Young",
     "copyrightYear" : "2019",
-    "datePublished": "2019-03-06 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2019-03-06 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/alfredyoung.club\/2019\/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA\/",
+    "datePublished": "2019-03-06 00:00:00 &#43;0000 UTC",
+    "dateModified" : "2019-03-06 00:00:00 &#43;0000 UTC",
+    "url" : "https://alfredyoung.club/2019/spring-cloud-eureka-%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/",
     "wordCount" : "212",
-    "keywords" : [ "Blog","Hugo", "Alfred\x27s Blog"]
+    "keywords" : [ "Blog","Hugo", "Alfred&#39;s Blog"]
 }
 </script>
 

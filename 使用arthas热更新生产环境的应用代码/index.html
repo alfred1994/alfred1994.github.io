@@ -41,12 +41,18 @@
     "@type" : "BlogPosting",
     "mainEntityOfPage": {
          "@type": "WebPage",
-         "@id": "https:\/\/alfredyoung.club\/"
+         "@id": "https://alfredyoung.club/"
     },
     "articleSection" : "posts",
     "name" : "使用Arthas热更新生产环境的应用代码",
     "headline" : "使用Arthas热更新生产环境的应用代码",
-    "description" : "1. 背景 最近公司在做部分服务器迁移, 由于当初开了太多的服务器并且每台服务器上的空闲资源很多, 所以将部分服务做迁移和整合.\n其中有一个服务是委托第三方jar包本地部署的, 但是现在运维将服务拆分为容器化部署后, 查看日志发现报错提示无法连接到Redis数据库, 但是连接MySQL数据库却是正常的. 使用JD-GUI反编译Jar包后发现, Redis的配置类里居然没有读取配置文件, 而是写死的127.0.0.1本地ip. 由于迁移后Redis和该服务不在一个容器内, 请求本地自然是访问不到的, 也就意味着只能通过热更新更新容器内代码了.\n2. Arthas介绍  Arthas 是一款开源在线 Java 诊断工具，采用命令行交互模式，支持 web 端在线诊断，同时提供丰富的 Tab 自动补全功能，进一步方便进行问题的定位和诊断。得益于 Arthas 强大且丰富的功能，让 Arthas 能做的事情超乎想象。\n 2.1 安装 可以直接选择官网推荐的在线快速安装.\n这里举例子先启动个demo容器好了:\ndocker run -d --name demo -p 8080:8080 \\ -v \/yourpath\/demo.jar:\/demo.jar java:8 \\ java -jar \/demo.jar  进入容器后直接执行:\n# 下载jar curl -O https:\/\/arthas.aliyun.com\/arthas-boot.jar # 启动后会下载maven依赖, 这里可以指定阿里镜像源, 这里先不启动 java -jar arthas-boot.jar --repo-mirror aliyun --use-http  2.2 编译要修改的Java类 这里用Arthas的mc命令也可以将java文件编译成class, 但是官方文档提示该命令有可能会编译失败, 所以我还是通过本地IDE来编译生成class文件.",
+    "description" : "1. 背景 最近公司在做部分服务器迁移, 由于当初开了太多的服务器并且每台服务器上的空闲资源很多, 所以将部分服务做迁移和整合.
+其中有一个服务是委托第三方jar包本地部署的, 但是现在运维将服务拆分为容器化部署后, 查看日志发现报错提示无法连接到Redis数据库, 但是连接MySQL数据库却是正常的. 使用JD-GUI反编译Jar包后发现, Redis的配置类里居然没有读取配置文件, 而是写死的127.0.0.1本地ip. 由于迁移后Redis和该服务不在一个容器内, 请求本地自然是访问不到的, 也就意味着只能通过热更新更新容器内代码了.
+2. Arthas介绍  Arthas 是一款开源在线 Java 诊断工具，采用命令行交互模式，支持 web 端在线诊断，同时提供丰富的 Tab 自动补全功能，进一步方便进行问题的定位和诊断。得益于 Arthas 强大且丰富的功能，让 Arthas 能做的事情超乎想象。
+ 2.1 安装 可以直接选择官网推荐的在线快速安装.
+这里举例子先启动个demo容器好了:
+docker run -d --name demo -p 8080:8080 \ -v /yourpath/demo.jar:/demo.jar java:8 \ java -jar /demo.jar  进入容器后直接执行:
+# 下载jar curl -O https://arthas.aliyun.com/arthas-boot.jar # 启动后会下载maven依赖, 这里可以指定阿里镜像源, 这里先不启动 java -jar arthas-boot.jar --repo-mirror aliyun --use-http  2.2 编译要修改的Java类 这里用Arthas的mc命令也可以将java文件编译成class, 但是官方文档提示该命令有可能会编译失败, 所以我还是通过本地IDE来编译生成class文件.",
     "inLanguage" : "en-us",
     "author" : "Alfred Young",
     "creator" : "Alfred Young",
@@ -54,11 +60,11 @@
     "accountablePerson" : "Alfred Young",
     "copyrightHolder" : "Alfred Young",
     "copyrightYear" : "2021",
-    "datePublished": "2021-04-23 00:00:00 \x2b0000 UTC",
-    "dateModified" : "2021-04-23 00:00:00 \x2b0000 UTC",
-    "url" : "https:\/\/alfredyoung.club\/2021\/%E4%BD%BF%E7%94%A8arthas%E7%83%AD%E6%9B%B4%E6%96%B0%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E7%9A%84%E5%BA%94%E7%94%A8%E4%BB%A3%E7%A0%81\/",
+    "datePublished": "2021-04-23 00:00:00 &#43;0000 UTC",
+    "dateModified" : "2021-04-23 00:00:00 &#43;0000 UTC",
+    "url" : "https://alfredyoung.club/2021/%E4%BD%BF%E7%94%A8arthas%E7%83%AD%E6%9B%B4%E6%96%B0%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E7%9A%84%E5%BA%94%E7%94%A8%E4%BB%A3%E7%A0%81/",
     "wordCount" : "114",
-    "keywords" : [ "jvm","linux","docker", "Alfred\x27s Blog"]
+    "keywords" : [ "jvm","linux","docker", "Alfred&#39;s Blog"]
 }
 </script>
 
