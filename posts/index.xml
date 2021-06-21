@@ -63,20 +63,6 @@ docker run --rm -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-ru
     </item>
     
     <item>
-      <title>docker常用命令</title>
-      <link>https://alfredyoung.club/2019/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
-      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://alfredyoung.club/2019/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
-      <description>查看容器对象的底层基础信息 docker inspect &amp;lt;容器id or 容器name &amp;gt;
-批量删除无标签的镜像 开发及测试环境时部署代码时每次都会自动生成同一标签的镜像，旧的镜像标签会被移除而显示为&amp;lt;none&amp;gt;
-docker rmi -fdocker images | grep &amp;lsquo;&amp;rsquo; | awk &amp;lsquo;{print $3}&amp;rsquo;``
-进入容器内部 docker exec -it &amp;lt;容器id or 容器name&amp;gt; /bin/sh
-查看容器输出日志 docker logs -f --tail 300 &amp;lt;容器id or 容器name&amp;gt;
-查看容器资源使用情况 docker stats &amp;lt;容器id, 不输入则显示全部&amp;gt;</description>
-    </item>
-    
-    <item>
       <title>通过Spring Boot Admin实现服务上下线的即时钉钉通知</title>
       <link>https://alfredyoung.club/2019/%E9%80%9A%E8%BF%87spring-boot-admin%E5%AE%9E%E7%8E%B0%E6%9C%8D%E5%8A%A1%E4%B8%8A%E4%B8%8B%E7%BA%BF%E7%9A%84%E5%8D%B3%E6%97%B6%E9%92%89%E9%92%89%E9%80%9A%E7%9F%A5/</link>
       <pubDate>Tue, 23 Apr 2019 00:00:00 +0000</pubDate>

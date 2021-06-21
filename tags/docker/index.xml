@@ -45,19 +45,5 @@ docker run --rm -v /srv/gitlab-runner/config:/etc/gitlab-runner gitlab/gitlab-ru
 3.1 准备工作  使用到了google的jib-maven-plugin插件，通过调用mvn package命令来生成docker image, 之后会再有文章详细说明。 开启部署目标服务器的docker远程连接端口。  3.2 新增配置 这里直接贴上包含明细注释的完整配置：</description>
     </item>
     
-    <item>
-      <title>docker常用命令</title>
-      <link>https://alfredyoung.club/2019/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</link>
-      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://alfredyoung.club/2019/docker%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</guid>
-      <description>查看容器对象的底层基础信息 docker inspect &amp;lt;容器id or 容器name &amp;gt;
-批量删除无标签的镜像 开发及测试环境时部署代码时每次都会自动生成同一标签的镜像，旧的镜像标签会被移除而显示为&amp;lt;none&amp;gt;
-docker rmi -fdocker images | grep &amp;lsquo;&amp;rsquo; | awk &amp;lsquo;{print $3}&amp;rsquo;``
-进入容器内部 docker exec -it &amp;lt;容器id or 容器name&amp;gt; /bin/sh
-查看容器输出日志 docker logs -f --tail 300 &amp;lt;容器id or 容器name&amp;gt;
-查看容器资源使用情况 docker stats &amp;lt;容器id, 不输入则显示全部&amp;gt;</description>
-    </item>
-    
   </channel>
 </rss>
